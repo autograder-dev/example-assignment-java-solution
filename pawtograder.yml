@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=./pawtograder.schema.yml
+build:
+  preset: 'java-gradle'
+  cmd: './gradlew test'
+  artifacts: ['build/reports/jacoco']
+  linter:
+    preset: 'checkstyle'
+    policy: 'fail'
+
+gradedParts:
+  - name: Task 1 - The Great Connect Four Catastrophe
+    gradedUnits:
+      - name: Test doMath
+        locations: 
+          - com.pawtograder.example.java.Entrypoint:8-15
+        breakPoints: 
+          - minimumMutantsDetected: 3
+            pointsToAward: 5 
+          - minimumMutantsDetected: 2
+            pointsToAward: 3
+      - name: Implement Entrypoint.getMessage()
+        tests: 
+          - com.pawtograder.example.java.EntrypointTest.
+        points: 10
+        testCount: 9
+  - name: Task 2 - Putting The Pieces Back Together
+    gradedUnits:
+      - name: More Entrypoint Stuff
+        points: 10
+        testCount: 6
+        tests: com.pawtograder.example.java.EntrypointTestPart2
+submissionFiles:
+  files:
+    - 'src/main/java/com/pawtograder/example/java/Entrypoint.java'
+  testFiles:
+    - 'src/test/java/com/pawtograder/example/java/EntrypointTest.java'
+

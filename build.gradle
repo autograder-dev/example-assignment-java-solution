@@ -1,0 +1,63 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'jacoco'
+    id 'info.solidsoft.pitest' version '1.15.0'
+    id 'checkstyle'
+}
+
+group 'com.pawtograder'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.2'
+}
+
+test {
+    useJUnitPlatform()
+    finalizedBy jacocoTestReport
+    ignoreFailures = true
+}
+
+jacocoTestReport {
+    dependsOn test
+    reports {
+        html.required = true
+        xml.required = false
+        csv.required = false
+    }
+}
+
+application {
+    mainClass = 'com.pawtograder.example.java.Entrypoint'
+}
+
+pitest {
+    junit5PluginVersion = '1.2.1'
+    targetClasses = ['com.pawtograder.example.java.*']
+    targetTests = ['com.pawtograder.example.java.*Test']
+    outputFormats = ['HTML', 'XML']
+    threads = 4
+    timestampedReports = false
+    mutators = ['DEFAULTS']
+    reportDir = file("$buildDir/reports/pitest")
+}
+
+checkstyle {
+    toolVersion = '10.12.5'
+    configFile = file("${rootDir}/config/checkstyle/checkstyle.xml")
+    maxWarnings = 0
+    ignoreFailures = true
+}
+
+tasks.withType(Checkstyle) {
+    reports {
+        xml.required = true
+        html.required = true
+    }
+} 

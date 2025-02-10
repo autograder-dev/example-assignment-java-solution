@@ -1,0 +1,111 @@
+$schema: http://json-schema.org/draft-07/schema#
+title: Assignment Grading Configuration
+type: object
+required:
+  - build
+  - gradedParts
+  - submissionFiles
+
+properties:
+  build:
+    type: object
+    required:
+      - preset
+      - cmd
+      - artifacts
+      - linter
+    properties:
+      preset:
+        type: string
+        enum: ['java-gradle']
+      cmd:
+        type: string
+      artifacts:
+        type: array
+        items:
+          type: string
+      linter:
+        type: object
+        required:
+          - preset
+          - policy
+        properties:
+          preset:
+            type: string
+            enum: ['checkstyle']
+          policy:
+            type: string
+            enum: ['fail']
+
+  gradedParts:
+    type: array
+    items:
+      type: object
+      required:
+        - name
+        - gradedUnits
+      properties:
+        name:
+          type: string
+        gradedUnits:
+          type: array
+          items:
+            type: object
+            required:
+              - name
+            oneOf:
+              - # For mutation testing units
+                required:
+                  - locations
+                  - breakPoints
+                properties:
+                  name:
+                    type: string
+                  locations:
+                    type: array
+                    items:
+                      type: string
+                      pattern: '^[^/].*:\d+-\d+$'  # matches file:line-line format
+                  breakPoints:
+                    type: array
+                    items:
+                      type: object
+                      required:
+                        - minimumMutantsDetected
+                        - pointsToAward
+                      properties:
+                        minimumMutantsDetected:
+                          type: integer
+                          minimum: 1
+                        pointsToAward:
+                          type: integer
+                          minimum: 0
+              - # For regular test units
+                required:
+                  - tests
+                  - points
+                  - testCount
+                properties:
+                  name:
+                    type: string
+                  tests:
+                    type: string
+                    pattern: '^\[T\d+\.\d+\]$'  # matches [T#.#] format
+                  points:
+                    type: integer
+                    minimum: 0
+                  testCount:
+                    type: integer
+                    minimum: 0
+
+  submissionFiles:
+    type: object
+    properties:
+      files:
+        type: array
+        items:
+          type: string
+      testFiles:
+        type: array
+        items:
+          type: string
