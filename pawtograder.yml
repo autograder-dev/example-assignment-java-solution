@@ -11,15 +11,15 @@ gradedParts:
   - name: Task 1 - The Great Connect Four Catastrophe
     gradedUnits:
       - name: Test doMath
-        locations: 
+        locations:
           - com.pawtograder.example.java.Entrypoint:8-15
-        breakPoints: 
+        breakPoints:
           - minimumMutantsDetected: 3
-            pointsToAward: 5 
+            pointsToAward: 5
           - minimumMutantsDetected: 2
             pointsToAward: 3
       - name: Implement Entrypoint.getMessage()
-        tests: 
+        tests:
           - com.pawtograder.example.java.EntrypointTest.
         points: 10
         testCount: 9
@@ -34,4 +34,3 @@ submissionFiles:
     - 'src/main/java/com/pawtograder/example/java/Entrypoint.java'
   testFiles:
     - 'src/test/java/com/pawtograder/example/java/EntrypointTest.java'
-

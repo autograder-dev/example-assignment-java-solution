@@ -65,7 +65,7 @@ properties:
                     type: array
                     items:
                       type: string
-                      pattern: '^[^/].*:\d+-\d+$'  # matches file:line-line format
+                      pattern: '^[^/].*:\d+-\d+$' # matches file:line-line format
                   breakPoints:
                     type: array
                     items:
@@ -90,7 +90,7 @@ properties:
                     type: string
                   tests:
                     type: string
-                    pattern: '^\[T\d+\.\d+\]$'  # matches [T#.#] format
+                    pattern: '^\[T\d+\.\d+\]$' # matches [T#.#] format
                   points:
                     type: integer
                     minimum: 0

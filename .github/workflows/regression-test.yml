@@ -48,3 +48,4 @@ jobs:
         with:
           grading_server: 'https://khoury-classroom-dev.ngrok.pizza'
           handout_repo: 'pawtograder/example-assignment-java-handout'
+          regression_test_job: '${{ matrix.config.id }}'
