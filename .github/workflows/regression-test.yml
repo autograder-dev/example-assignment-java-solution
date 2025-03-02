@@ -42,16 +42,9 @@ jobs:
         uses: actions/checkout@v4
         with:
           path: submission
-      - name: Debug matrix
-        run: |
-          echo "matrix: ${{ toJSON(matrix) }}"
-          echo "config: ${{ matrix.config }}"
-          echo "id: ${{ matrix.id }}"
-        shell: bash
-
       - name: Collect Submission and Run Grader
         uses: neu-se/autograder-action@main
         with:
           grading_server: 'https://khoury-classroom-dev.ngrok.pizza'
           handout_repo: 'pawtograder/example-assignment-java-handout'
-          regression_test_job: '${{ matrix.id }}'
+          regression_test_job: '${{ matrix.configs.id }}'
