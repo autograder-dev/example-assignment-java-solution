@@ -44,9 +44,9 @@ jobs:
           path: submission
       - name: Collect Submission and Run Grader
         uses: neu-se/autograder-action@main
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
         with:
           grading_server: 'https://khoury-classroom-dev.ngrok.pizza'
           handout_repo: 'pawtograder/example-assignment-java-handout'
           regression_test_job: '${{ matrix.configs.id }}'
+          action_ref: '${{ github.action_ref }}'
+          action_repository: '${{ github.action_repository }}'
