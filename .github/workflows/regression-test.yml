@@ -44,7 +44,7 @@ jobs:
           path: submission
       - name: Debug matrix
         run: |
-          echo "matrix: ${{ matrix }}"
+          echo "matrix: ${{ toJSON(matrix) }}"
           echo "config: ${{ matrix.config }}"
           echo "id: ${{ matrix.id }}"
         shell: bash
