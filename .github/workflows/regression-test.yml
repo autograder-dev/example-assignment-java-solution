@@ -46,7 +46,7 @@ jobs:
         run: |
           echo "matrix: ${{ matrix }}"
           echo "config: ${{ matrix.config }}"
-          echo "id: ${{ matrix.config.id }}"
+          echo "id: ${{ matrix.id }}"
         shell: bash
 
       - name: Collect Submission and Run Grader
@@ -54,4 +54,4 @@ jobs:
         with:
           grading_server: 'https://khoury-classroom-dev.ngrok.pizza'
           handout_repo: 'pawtograder/example-assignment-java-handout'
-          regression_test_job: '${{ matrix.config.id }}'
+          regression_test_job: '${{ matrix.id }}'
