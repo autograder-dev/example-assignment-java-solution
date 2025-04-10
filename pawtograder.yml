@@ -6,7 +6,7 @@ build:
   linter:
     preset: 'checkstyle'
     policy: 'fail'
-# hi
+# hid
 gradedParts:
   - name: Task 1 - The Great Connect Four Catastrophe
     gradedUnits:
