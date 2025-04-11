@@ -27,7 +27,7 @@ jobs:
       - name: Retrieve regression test matrix
         id: set-matrix
         run: |
-          response=$(curl -H "Authorization: ${{ steps.idtoken.outputs.id_token }}" https://khoury-classroom-dev.ngrok.pizza/api/autograder/regression-tests)
+          response=$(curl -H "Authorization: ${{ steps.idtoken.outputs.id_token }}" https://pveyalbiqnrpvuazgyuo.supabase.co/functions/v1/autograder-retrieve-autograder-regression-tests)
           echo "matrix=$response" >> $GITHUB_OUTPUT
         shell: bash
   smoke-test:
