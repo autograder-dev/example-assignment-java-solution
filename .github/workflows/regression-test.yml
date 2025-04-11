@@ -45,7 +45,7 @@ jobs:
       - name: Collect Submission and Run Grader
         uses: neu-se/autograder-action@main
         with:
-          grading_server: 'https://khoury-classroom-dev.ngrok.pizza'
+          grading_server: 'https://pveyalbiqnrpvuazgyuo.supabase.co'
           handout_repo: 'pawtograder/example-assignment-java-handout'
           regression_test_job: '${{ matrix.configs.id }}'
           action_ref: '${{ github.action_ref }}'
