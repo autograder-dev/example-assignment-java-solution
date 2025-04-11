@@ -23,7 +23,7 @@ gradedParts:
           - com.pawtograder.example.java.EntrypointTest.
         points: 10
         testCount: 9
-  - name: Task 2 - Putting The Pieces Back Together
+  - name: Task 2 - Putting The Pieces Back Together, Again
     gradedUnits:
       - name: More Entrypoint Stuff
         points: 10
