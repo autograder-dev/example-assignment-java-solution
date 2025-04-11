@@ -36,6 +36,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix: ${{fromJson(needs.build-matrix.outputs.matrix)}}
+      fail-fast: false
     steps:
       - name: Checkout
         id: checkout
