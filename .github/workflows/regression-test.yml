@@ -44,7 +44,7 @@ jobs:
         with:
           path: submission
       - name: Collect Submission and Run Grader
-        uses: pawtograder/autograder-action@artifacts
+        uses: pawtograder/assignment-action@artifacts
         with:
           grading_server: 'https://api.pawtograder.com'
           handout_repo: 'pawtograder/example-assignment-java-handout'
