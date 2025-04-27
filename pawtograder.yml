@@ -2,7 +2,11 @@
 build:
   preset: 'java-gradle'
   cmd: './gradlew test'
-  artifacts: ['build/reports/jacoco']
+  artifacts:
+  - name: entrypoint_message
+    path: entrypoint_message.png
+  - name: jacoco
+    path: build/reports/jacoco
   linter:
     preset: 'checkstyle'
     policy: 'fail'

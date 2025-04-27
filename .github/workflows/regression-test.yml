@@ -44,9 +44,9 @@ jobs:
         with:
           path: submission
       - name: Collect Submission and Run Grader
-        uses: neu-se/autograder-action@main
+        uses: pawtograder/autograder-action@artifacts
         with:
-          grading_server: 'https://pveyalbiqnrpvuazgyuo.supabase.co'
+          grading_server: 'https://api.pawtograder.com'
           handout_repo: 'pawtograder/example-assignment-java-handout'
           regression_test_job: '${{ matrix.configs.id }}'
           action_ref: '${{ github.action_ref }}'
