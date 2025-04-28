@@ -5,8 +5,13 @@ build:
   artifacts:
   - name: entrypoint_message
     path: entrypoint_message.png
+    data:
+      format: 'png'
   - name: jacoco
     path: build/reports/jacoco
+    data:
+      format: 'zip'
+      display: 'html_site'
   linter:
     preset: 'checkstyle'
     policy: 'fail'
