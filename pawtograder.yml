@@ -40,6 +40,6 @@ gradedParts:
         tests: com.pawtograder.example.java.EntrypointTestPart2
 submissionFiles:
   files:
-    - 'src/main/java/com/pawtograder/example/java/Entrypoint.java'
+    - 'src/main/java/com/pawtograder/example/java/EntrypointTypo.java'
   testFiles:
     - 'src/test/java/com/pawtograder/example/java/EntrypointTest.java'
